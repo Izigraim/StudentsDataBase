@@ -16,11 +16,11 @@ namespace StudentsDataBase.Services
             this.mySqlConnection = mySqlConnection;
         }
 
-        public void RegistrationUser(string login, string password, int role, int status)
+        public void RegistrationUser(string firstName, string lastName, string thirdName, string login, string password, int role, int status)
         {
             using (this.mySqlConnection)
             {
-                string command = $"call students.registration_procedure({login}, {password}, {role}, {status});";
+                string command = $"call students.registration_procedure('{firstName}' ,'{lastName}' ,'{thirdName}', '{login}', '{password}', {role}, {status});";
 
                 this.mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(command, this.mySqlConnection);

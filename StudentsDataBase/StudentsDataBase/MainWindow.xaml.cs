@@ -35,7 +35,7 @@ namespace StudentsDataBase
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.userService.RegistrationUser(loginTextBox.Text, passwordTextBox.Text, 2, 2);
+            this.userService.RegistrationUser(firstNameTextBox.Text, lastNameTextBox.Text, thirdNameTextBox.Text, loginTextBox.Text, passwordTextBox.Text, 1, 1);
         }
     }
 }
