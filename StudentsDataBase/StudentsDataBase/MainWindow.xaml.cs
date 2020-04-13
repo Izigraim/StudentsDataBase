@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using StudentsDataBase.SqlConnection;
+using StudentsDataBase.Services;
 
 namespace StudentsDataBase
 {
@@ -20,9 +23,19 @@ namespace StudentsDataBase
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string connection = "datasource=127.0.0.1;port=3306;username=student;password=student;database=students";
+        private readonly UserService userService;
+
         public MainWindow()
         {
+            this.userService = new UserService(new DBConnection(connection).MySqlConnection);
+
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.userService.RegistrationUser(loginTextBox.Text, passwordTextBox.Text, 2, 2);
         }
     }
 }
