@@ -23,19 +23,26 @@ namespace StudentsDataBase
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string connection = "datasource=127.0.0.1;port=3306;username=student;password=student;database=students";
         private readonly UserService userService;
 
         public MainWindow()
         {
-            this.userService = new UserService(new DBConnection(connection).MySqlConnection);
+            this.userService = new UserService(new DBConnection().MySqlConnection);
 
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.userService.RegistrationUser(firstNameTextBox.Text, lastNameTextBox.Text, thirdNameTextBox.Text, loginTextBox.Text, passwordTextBox.Text, 1, 1);
+
+        }
+
+        private void SugnUpButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+
+            RegistrationWindows registrationWindows = new RegistrationWindows();
+            registrationWindows.Show();
         }
     }
 }
