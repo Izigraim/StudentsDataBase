@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using StudentsDataBase.SqlConnection;
 using StudentsDataBase.Services;
+using StudentsDataBase.Validation;
 
 namespace StudentsDataBase
 {
@@ -34,14 +35,52 @@ namespace StudentsDataBase
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                try
+                {
+                    if (loginTextBox.Text.Length == 0)
+                    {
+                        throw new ArgumentException("Логин не может быть пустым.");
+                    }
+                    else if (!this.userService.IsUserExists(loginTextBox.Text))
+                    {
+                        throw new ArgumentException("Пользователь с таким логином не существует.");
+                    }
+                }
+                catch (IndexOutOfRangeException)
+                {
 
+                }
+
+                UserValidation.LoginValidation(loginTextBox.Text, passwordTextBox.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            try
+            {
+                this.userService.AuthorizationUser(loginTextBox.Text, passwordTextBox.Text);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            this.Hide();
+
+            LoginedWindows loginedWindows = new LoginedWindows(this.userService);
+            loginedWindows.Show();
         }
 
         private void SugnUpButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
 
-            RegistrationWindows registrationWindows = new RegistrationWindows();
+            RegistrationWindows registrationWindows = new RegistrationWindows(userService);
             registrationWindows.Show();
         }
     }

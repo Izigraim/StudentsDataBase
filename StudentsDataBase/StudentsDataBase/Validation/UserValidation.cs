@@ -219,5 +219,26 @@ namespace StudentsDataBase.Validation
                 throw new ArgumentOutOfRangeException("Пароль не может быть больше 45 символво.");
             }
         }
+
+        public static void LoginValidation(string login, string password)
+        {
+            if (login == null || login.Length == 0)
+            {
+                throw new ArgumentNullException("Логин не может быть пустым.");
+            }
+            else if (login.Length > 45)
+            {
+                throw new ArgumentOutOfRangeException("Логин не может быть больше 45 символов.");
+            }
+
+            if (password == null || password.Length == 0)
+            {
+                throw new ArgumentNullException("Пароль не может быть пустым.");
+            }
+            else if (password.Length > 45)
+            {
+                throw new ArgumentOutOfRangeException("Пароль не может быть больше 45 символов.");
+            }
+        }
     }
 }

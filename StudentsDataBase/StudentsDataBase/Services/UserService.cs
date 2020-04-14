@@ -17,6 +17,8 @@ namespace StudentsDataBase.Services
             this.mySqlConnection = mySqlConnection;
         }
 
+        public string AuthorizedUser { get; set; }
+
         public void RegistrationUser(string firstName, string lastName, string thirdName, string passportSeria, int passportNumber, string issuedBy, string date5, string identNumber,
             int sex, string house, int housing, string flat, int zipCode, long phoneNumber, string email, string region, string district, int townType, string town,
             int streetType, string street, string login, string password)
@@ -31,6 +33,8 @@ namespace StudentsDataBase.Services
                 MySqlCommand mySqlCommand = new MySqlCommand(command, this.mySqlConnection);
                 mySqlCommand.ExecuteNonQuery();
             }
+
+            this.AuthorizedUser = login;
         }
 
         public bool IsUserExists(string login)
@@ -39,20 +43,46 @@ namespace StudentsDataBase.Services
             {
                 string command = $"select students.user.id from students.user where students.user.login = {login}";
 
-                this.mySqlConnection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand(command, this.mySqlConnection);
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
-                mySqlDataAdapter.SelectCommand = mySqlCommand;
-                DataTable dataTable = new DataTable();
-                mySqlDataAdapter.Fill(dataTable);
+                DataTable dataTable = GetDataTable(command);
 
-                if (dataTable.AsEnumerable().ToArray()[0].ItemArray[0].ToString() != null || dataTable.AsEnumerable().ToArray()[0].ItemArray[0].ToString().Length != 0)
+                try
                 {
-                    return true;
+                    if (dataTable.AsEnumerable().ToArray()[0].ItemArray[0].ToString() != null || dataTable.AsEnumerable().ToArray()[0].ItemArray[0].ToString().Length != 0)
+                    {
+                        return true;
+                    }
+                }
+                catch (Exception)
+                {
+                    return false;
                 }
             }
 
             return false;
+        }
+
+        public void AuthorizationUser(string login, string password)
+        {
+            using (this.mySqlConnection)
+            {
+                string command = $"call students.authorization_procedure('{login}', '{password}');";
+
+                DataTable dataTable = GetDataTable(command);
+
+                this.AuthorizedUser = dataTable.AsEnumerable().ToArray()[0].ItemArray[0].ToString();
+            }
+        }
+
+        private DataTable GetDataTable(string command)
+        {
+            this.mySqlConnection.Open();
+            MySqlCommand mySqlCommand = new MySqlCommand(command, this.mySqlConnection);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
+            mySqlDataAdapter.SelectCommand = mySqlCommand;
+            DataTable dataTable = new DataTable();
+            mySqlDataAdapter.Fill(dataTable);
+
+            return dataTable;
         }
     }
 }

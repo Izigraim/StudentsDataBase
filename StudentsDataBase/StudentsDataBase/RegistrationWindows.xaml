@@ -8,7 +8,7 @@
         Title="RegistrationWindows" Height="600" Width="900">
     <Grid Margin="0,0,-6.4,-20">
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="459" Margin="15,82,0,0" Stroke="Black" VerticalAlignment="Top" Width="275"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="385" Margin="320,87,0,0" Stroke="Black" VerticalAlignment="Top" Width="570"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="385" Margin="320,87,0,0" Stroke="Black" VerticalAlignment="Top" Width="565"/>
         <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="120,174,0,0" Name="name1TextBox"/>
         <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="120,209,0,0" Name="name2TextBox"/>
         <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="120,252,0,0" Name="name3TextBox"/>
@@ -74,5 +74,6 @@
         <Label Content="Адрес" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="596,50,0,0" RenderTransformOrigin="1.164,0.902" FontSize="20"/>
         <Label Content="Личная информация" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,40,0,0" RenderTransformOrigin="1.164,0.902" FontSize="20"/>
         <Button Content="Зарегестрироваться" HorizontalAlignment="Left" Margin="639,427,0,0" VerticalAlignment="Top" Width="235" Height="34" FontSize="20" Name="registerButton" Click="registerButton_Click"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="714,510,0,0" VerticalAlignment="Top" Width="160" Height="35" FontSize="20" Name="backButton" Click="backButton_Click"/>
     </Grid>
 </Window>

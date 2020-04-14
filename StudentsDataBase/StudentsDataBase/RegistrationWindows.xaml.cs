@@ -24,9 +24,9 @@ namespace StudentsDataBase
     {
         private readonly UserService userService;
 
-        public RegistrationWindows()
+        public RegistrationWindows(UserService userService)
         {
-            this.userService = new UserService(new DBConnection().MySqlConnection);
+            this.userService = userService;
 
             InitializeComponent();
         }
@@ -35,9 +35,20 @@ namespace StudentsDataBase
         {
             try
             {
-                if (this.userService.IsUserExists(loginTextBox.Text))
+                try
                 {
-                    throw new ArgumentException("Пользователь с таким логином уже существует.");
+                    if (loginTextBox.Text.Length == 0)
+                    {
+                        throw new ArgumentException("Логин не может быть пустым.");
+                    }
+                    else if (this.userService.IsUserExists(loginTextBox.Text))
+                    {
+                        throw new ArgumentException("Пользователь с таким логином уже существует.");
+                    }
+                }
+                catch (IndexOutOfRangeException)
+                {
+
                 }
 
                 UserValidation.RegistrationValidation(name1TextBox.Text, name2TextBox.Text, name3TextBox.Text, passportSeriaTextBox.Text, passportNumberTextBox.Text, issuedByTextBox.Text,
@@ -65,8 +76,21 @@ namespace StudentsDataBase
             }
             catch (Exception)
             {
-
+                return;
             }
+
+            this.Hide();
+
+            LoginedWindows loginedWindows = new LoginedWindows(this.userService);
+            loginedWindows.Show();
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }

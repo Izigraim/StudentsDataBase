@@ -78,12 +78,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoginedWindows.xaml.cs">
+      <DependentUpon>LoginedWindows.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistrationWindows.xaml.cs">
       <DependentUpon>RegistrationWindows.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\UserService.cs" />
     <Compile Include="SqlConnection\DBConnection.cs" />
     <Compile Include="Validation\UserValidation.cs" />
+    <Page Include="LoginedWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
