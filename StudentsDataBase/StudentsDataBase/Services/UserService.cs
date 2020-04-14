@@ -61,15 +61,33 @@ namespace StudentsDataBase.Services
             return false;
         }
 
-        public void AuthorizationUser(string login, string password)
+        public string AuthorizationUser(string login, string password)
         {
+            string statusString;
+
             using (this.mySqlConnection)
             {
                 string command = $"call students.authorization_procedure('{login}', '{password}');";
 
                 DataTable dataTable = GetDataTable(command);
 
-                this.AuthorizedUser = dataTable.AsEnumerable().ToArray()[0].ItemArray[0].ToString();
+                this.AuthorizedUser = login;
+
+                statusString = dataTable.AsEnumerable().ToArray()[0].ItemArray[0].ToString();
+            }
+
+            return statusString;
+        }
+
+        public void DeleteUser(string login)
+        {
+            using (this.mySqlConnection)
+            {
+                string command = $"call students.delete_procedure('{login}');";
+
+                DataTable dataTable = GetDataTable(command);
+
+                this.AuthorizedUser = String.Empty;
             }
         }
 

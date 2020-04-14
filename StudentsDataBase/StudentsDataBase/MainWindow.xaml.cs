@@ -63,24 +63,42 @@ namespace StudentsDataBase
 
             try
             {
-                this.userService.AuthorizationUser(loginTextBox.Text, passwordTextBox.Text);
+                string statusString = this.userService.AuthorizationUser(loginTextBox.Text, passwordTextBox.Text);
+
+                if (statusString == "Blocked")
+                {
+                    MessageBox.Show("Пользователь заблокирован.");
+                    return;
+                }
+                else if (statusString == "Deleted")
+                {
+                    MessageBox.Show("Пользователь заблокирован.");
+                    return;
+                }
             }
             catch (Exception)
             {
+                MessageBox.Show("Неверный пароль.");
                 return;
             }
 
+            loginTextBox.Text = string.Empty;
+            passwordTextBox.Text = string.Empty;
+
             this.Hide();
 
-            LoginedWindows loginedWindows = new LoginedWindows(this.userService);
+            LoginedWindows loginedWindows = new LoginedWindows(this.userService, this);
             loginedWindows.Show();
         }
 
         private void SugnUpButton_Click(object sender, RoutedEventArgs e)
         {
+            loginTextBox.Text = string.Empty;
+            passwordTextBox.Text = string.Empty;
+
             this.Hide();
 
-            RegistrationWindows registrationWindows = new RegistrationWindows(userService);
+            RegistrationWindows registrationWindows = new RegistrationWindows(userService, this);
             registrationWindows.Show();
         }
     }

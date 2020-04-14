@@ -21,14 +21,35 @@ namespace StudentsDataBase
     public partial class LoginedWindows : Window
     {
         private readonly UserService userService;
+        private readonly MainWindow mainWindow;
 
-        public LoginedWindows(UserService userService)
+        public LoginedWindows(UserService userService, MainWindow mainWindow)
         {
             this.userService = userService;
+            this.mainWindow = mainWindow;
 
             InitializeComponent();
 
             label1.Content = this.userService.AuthorizedUser;
+        }
+
+        private void deleteCurrentAccount_Click(object sender, RoutedEventArgs e)
+        {
+            this.userService.DeleteUser(this.userService.AuthorizedUser);
+
+            this.Hide();
+
+            mainWindow.Show();
+            
+        }
+
+        private void exitFromAccount_Click(object sender, RoutedEventArgs e)
+        {
+            this.userService.AuthorizedUser = string.Empty;
+
+            this.Hide();
+
+            mainWindow.Show();
         }
     }
 }

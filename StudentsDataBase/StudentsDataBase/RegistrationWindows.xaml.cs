@@ -23,10 +23,12 @@ namespace StudentsDataBase
     public partial class RegistrationWindows : Window
     {
         private readonly UserService userService;
+        private readonly MainWindow mainWindow;
 
-        public RegistrationWindows(UserService userService)
+        public RegistrationWindows(UserService userService, MainWindow mainWindow)
         {
             this.userService = userService;
+            this.mainWindow = mainWindow;
 
             InitializeComponent();
         }
@@ -81,7 +83,7 @@ namespace StudentsDataBase
 
             this.Hide();
 
-            LoginedWindows loginedWindows = new LoginedWindows(this.userService);
+            LoginedWindows loginedWindows = new LoginedWindows(this.userService, this.mainWindow);
             loginedWindows.Show();
         }
 
