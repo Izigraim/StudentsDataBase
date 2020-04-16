@@ -51,5 +51,15 @@ namespace StudentsDataBase
 
             mainWindow.Show();
         }
+
+        private void updateAccount_Click(object sender, RoutedEventArgs e)
+        {
+            // this.userService.UpdateUser("10", "10", "10", "10", 1, "10", "1-10-1", "10", 1, "10", 1, "10", 1, 1, "10", "10", "10", 1, "10", 1, "10", "1");
+
+            this.Hide();
+
+            UpdateWindow updateWindow = new UpdateWindow(this.userService, this.mainWindow);
+            updateWindow.Show();
+        }
     }
 }

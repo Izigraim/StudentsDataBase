@@ -86,6 +86,9 @@
     </Compile>
     <Compile Include="Services\UserService.cs" />
     <Compile Include="SqlConnection\DBConnection.cs" />
+    <Compile Include="UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Validation\UserValidation.cs" />
     <Page Include="LoginedWindows.xaml">
       <SubType>Designer</SubType>
@@ -104,6 +107,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RegistrationWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

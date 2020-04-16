@@ -1,0 +1,76 @@
+﻿<Window x:Class="StudentsDataBase.UpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsDataBase"
+        mc:Ignorable="d"
+        Title="UpdateWindow" Height="600" Width="900">
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="379" Margin="29,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="275"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="385" Margin="323,96,-94.4,-61" Stroke="Black" VerticalAlignment="Top" Width="565"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="134,114,0,0" x:Name="name1TextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="134,148,0,0" x:Name="name2TextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="134,191,0,0" x:Name="name3TextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="134,229,0,0" x:Name="passportSeriaTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="134,271,0,0" x:Name="passportNumberTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="134,315,0,0" x:Name="issuedByTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="134,355,0,0" x:Name="date5TextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="434,107,0,0" x:Name="regionTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="434,149,0,0" x:Name="districtTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="717,149,-83.4,0" x:Name="zipCodeTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="434,228,0,0" x:Name="townTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="717,228,-83.4,0" x:Name="emailTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="434,309,0,0" x:Name="streetTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="434,352,0,0" x:Name="houseTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="434,395,0,0" x:Name="housingTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="717,107,-83.4,0" x:Name="flatTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="717,190,-83.4,0" x:Name="phoneNumberTextBox"/>
+        <ComboBox HorizontalAlignment="Left" Margin="434,190,0,0" VerticalAlignment="Top" Width="160" Height="23" x:Name="townTypeComboBox">
+            <ComboBoxItem Content="Город" HorizontalAlignment="Left" Width="158.4"/>
+            <ComboBoxItem Content="Поселок" HorizontalAlignment="Left" Width="158.4"/>
+            <ComboBoxItem Content="Населенный пункт" HorizontalAlignment="Left" Width="158.4"/>
+            <ComboBoxItem Content="Деревня" HorizontalAlignment="Left" Width="158.4"/>
+        </ComboBox>
+        <ComboBox HorizontalAlignment="Left" Margin="434,271,0,0" VerticalAlignment="Top" Width="160" Height="23" x:Name="streetTypeComboBox">
+            <ComboBoxItem Content="Проспект" HorizontalAlignment="Left" Width="158.4"/>
+            <ComboBoxItem Content="Переулок" HorizontalAlignment="Left" Width="158.4"/>
+            <ComboBoxItem Content="Площадь" HorizontalAlignment="Left" Width="158.4"/>
+            <ComboBoxItem Content="Улица" HorizontalAlignment="Left" Width="158.4"/>
+            <ComboBoxItem Content="Бульвар" HorizontalAlignment="Left" Width="158.4"/>
+        </ComboBox>
+        <ComboBox HorizontalAlignment="Left" Margin="134,449,0,0" VerticalAlignment="Top" Width="160" Height="23" x:Name="sexComboBox">
+            <ComboBoxItem Content="Мужской" HorizontalAlignment="Left" Width="158.4"/>
+            <ComboBoxItem Content="Женский" HorizontalAlignment="Left" Width="158.4"/>
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="160" Margin="134,403,0,0" x:Name="identNumberTextBox"/>
+        <Label Content="Редактирование пользователя: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="323,19,0,0" RenderTransformOrigin="1.164,0.902" FontSize="22" Name="mainLabel"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="57,113,0,0" VerticalAlignment="Top" Width="43"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="37,148,0,0" VerticalAlignment="Top" Width="71"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="37,191,0,0" VerticalAlignment="Top" Width="71"/>
+        <Label Content="Серия паспорта" HorizontalAlignment="Left" Margin="29,229,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label Content="Номер паспорта" HorizontalAlignment="Left" Margin="29,271,0,0" VerticalAlignment="Top" Width="105"/>
+        <Label Content="Кем выдан" HorizontalAlignment="Left" Margin="37,315,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.507,-0.5"/>
+        <Label Content="Дата выдачи" HorizontalAlignment="Left" Margin="29,355,0,0" VerticalAlignment="Top" Width="105"/>
+        <Label Content="Пол" HorizontalAlignment="Left" Margin="48,446,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Область" HorizontalAlignment="Left" Margin="349,107,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Район" HorizontalAlignment="Left" Margin="349,149,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Название" HorizontalAlignment="Left" Margin="349,228,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Область" HorizontalAlignment="Left" Margin="349,107,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Тип" HorizontalAlignment="Left" Margin="349,190,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Тип" HorizontalAlignment="Left" Margin="349,271,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Улица" HorizontalAlignment="Left" Margin="349,309,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Дом" HorizontalAlignment="Left" Margin="349,351,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Корпус" HorizontalAlignment="Left" Margin="349,395,0,-1" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Квартира" HorizontalAlignment="Left" Margin="630,107,0,0" VerticalAlignment="Top" Width="67"/>
+        <Label Content="Почтовый индекс" HorizontalAlignment="Left" Margin="599,149,0,0" VerticalAlignment="Top" Width="113"/>
+        <Label Content="Номер телефона" HorizontalAlignment="Left" Margin="599,190,0,0" VerticalAlignment="Top" Width="113"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="642,225,0,0" VerticalAlignment="Top" Width="55"/>
+        <Label Content="Иден. номер" HorizontalAlignment="Left" Margin="24,403,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="0.57,2.43"/>
+        <Label Content="Адрес" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="599,59,0,0" RenderTransformOrigin="1.164,0.902" FontSize="20"/>
+        <Label Content="Личная информация" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,49,0,0" RenderTransformOrigin="1.164,0.902" FontSize="20"/>
+        <Button Content="Редактировать" HorizontalAlignment="Left" Margin="642,436,-83.4,-50" VerticalAlignment="Top" Width="235" Height="34" FontSize="20" x:Name="updateClick" Click="updateClick_Click"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="717,519,-83.4,-134" VerticalAlignment="Top" Width="160" Height="35" FontSize="20" x:Name="backButton" Click="backButton_Click"/>
+
+    </Grid>
+</Window>
