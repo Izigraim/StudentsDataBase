@@ -11,6 +11,7 @@
         <Button Content="Удалить мой аккаунт" HorizontalAlignment="Left" Margin="639,323,0,0" VerticalAlignment="Top" Width="145" Height="34" Name="deleteCurrentAccount" Click="deleteCurrentAccount_Click"/>
         <Button Content="Выйти из аккаунта" HorizontalAlignment="Left" Margin="639,376,0,0" VerticalAlignment="Top" Width="145" Height="34" Name="exitFromAccount" Click="exitFromAccount_Click"/>
         <Button Content="Редактировать аккаунт" HorizontalAlignment="Left" Margin="639,270,0,0" VerticalAlignment="Top" Width="145" Height="34" Name="updateAccount" Click="updateAccount_Click"/>
+        <Button Content="Заблокировать на время" HorizontalAlignment="Left" Margin="639,217,0,0" VerticalAlignment="Top" Width="145" Height="34" Name="blockOnTime" Click="blockOnTime_Click"/>
 
     </Grid>
 </Window>

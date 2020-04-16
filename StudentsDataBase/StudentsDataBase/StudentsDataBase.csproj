@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BlockUserWindow.xaml.cs">
+      <DependentUpon>BlockUserWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginedWindows.xaml.cs">
       <DependentUpon>LoginedWindows.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation\UserValidation.cs" />
+    <Page Include="BlockUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginedWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

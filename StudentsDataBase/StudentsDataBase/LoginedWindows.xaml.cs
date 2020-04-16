@@ -61,5 +61,11 @@ namespace StudentsDataBase
             UpdateWindow updateWindow = new UpdateWindow(this.userService, this.mainWindow);
             updateWindow.Show();
         }
+
+        private void blockOnTime_Click(object sender, RoutedEventArgs e)
+        {
+            BlockUserWindow blockUserWindow = new BlockUserWindow(this.userService, this.mainWindow);
+            blockUserWindow.Show();
+        }
     }
 }

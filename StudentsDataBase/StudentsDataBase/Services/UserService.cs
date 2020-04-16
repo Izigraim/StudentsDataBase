@@ -127,6 +127,22 @@ namespace StudentsDataBase.Services
             }
         }
 
+        public void BlockOnTime(string login, int time)
+        {
+            using (this.mySqlConnection)
+            {
+                string command = $" update students.user set students.user.status = 2 where students.user.login = '{login}' limit 1; " +
+                    $" CREATE EVENT IF NOT EXISTS blockOnTime ON SCHEDULE AT DATE_ADD(NOW(), INTERVAL {time} second) " +
+                    $" DO " +
+                    $" update students.user set students.user.status = 1 where students.user.login = '{login}' limit 1; ";
+
+                this.mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand(command, this.mySqlConnection);
+
+                mySqlCommand.ExecuteNonQuery();
+            }
+        }
+
         private DataTable GetDataTable(string command)
         {
             this.mySqlConnection.Open();

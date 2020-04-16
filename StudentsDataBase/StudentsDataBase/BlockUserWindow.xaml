@@ -1,0 +1,21 @@
+﻿<Window x:Class="StudentsDataBase.BlockUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsDataBase"
+        mc:Ignorable="d"
+        Title="BlockUserWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Заблокировать" HorizontalAlignment="Left" Margin="340,206,0,0" VerticalAlignment="Top" Width="120" Name="blockUser" Click="blockUser_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="340,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="loginTextBox"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="340,151,0,0" Name="timeComboBox">
+            <ComboBoxItem Content="10 секунд" HorizontalAlignment="Left" Width="118.4"/>
+            <ComboBoxItem Content="10 минут" HorizontalAlignment="Left" Width="118.4"/>
+            <ComboBoxItem Content="1 час" HorizontalAlignment="Left" Width="118.4"/>
+            <ComboBoxItem Content="1 день" HorizontalAlignment="Left" Width="118.4"/>
+        </ComboBox>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="664,391,0,0" VerticalAlignment="Top" Width="120" Name="backBotton"/>
+
+    </Grid>
+</Window>
