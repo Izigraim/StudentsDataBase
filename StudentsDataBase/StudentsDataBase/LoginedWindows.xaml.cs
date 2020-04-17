@@ -67,5 +67,10 @@ namespace StudentsDataBase
             BlockUserWindow blockUserWindow = new BlockUserWindow(this.userService, this.mainWindow);
             blockUserWindow.Show();
         }
+
+        private void backupButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.userService.BackupUser(this.userService.AuthorizedUser);
+        }
     }
 }

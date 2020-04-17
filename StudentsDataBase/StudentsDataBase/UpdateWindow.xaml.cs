@@ -137,8 +137,9 @@ namespace StudentsDataBase
                 emailTextBox.Text, regionTextBox.Text, districtTextBox.Text, townTypeComboBox.SelectedIndex + 1, townTextBox.Text, streetTypeComboBox.SelectedIndex + 1,
                 streetTextBox.Text, this.userService.AuthorizedUser);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return;
             }
 

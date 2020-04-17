@@ -143,6 +143,19 @@ namespace StudentsDataBase.Services
             }
         }
 
+        public void BackupUser(string login)
+        {
+            using (this.mySqlConnection)
+            {
+                string command = $"call students.backup_procedure('{login}');";
+
+                this.mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand(command, this.mySqlConnection);
+
+                mySqlCommand.ExecuteNonQuery();
+            }
+        }
+
         private DataTable GetDataTable(string command)
         {
             this.mySqlConnection.Open();

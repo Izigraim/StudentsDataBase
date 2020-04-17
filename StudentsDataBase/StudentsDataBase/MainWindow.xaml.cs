@@ -76,7 +76,7 @@ namespace StudentsDataBase
                     return;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Неверный пароль.");
                 return;
